@@ -14,7 +14,7 @@ request.open('GET', 'https://gateway.marvel.com/v1/public/characters', true)
 
 request.onload = function () {
   // Begin accessing JSON data here
-  alert("inside function");
+  
   alert(request.status);
   
   var data = JSON.parse(this.data);
@@ -33,7 +33,7 @@ request.onload = function () {
 }
 
 // Send request
-request.send("apikey=0d0d046ee0b75405f5881a545523f18d");
+request.send("0d0d046ee0b75405f5881a545523f18d");
 
 //make button work
 submit.addEventListener("click", respond);
