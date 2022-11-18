@@ -19,7 +19,7 @@ request.onload = function () {
   if(request.status >= 200 && request.status <= 400) {
     data.forEach(character => {
     // Log each character's name
-    response.innerHTML += " " + character.name
+    console.log(character.name);
   })
   } else {
     alert("error");
