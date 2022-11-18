@@ -17,15 +17,16 @@ request.onload = function () {
   
   
   var data = JSON.parse(this.data)
-
-  if(request.code >= 200 && request.code <= 400) {
-    alert(request.code);
+alert(request.code);
+alert(request.status);
+  if(request.status >= 200 && request.status <= 400) {
+    
     data.forEach(character => {
     // Log each character's name
     console.log(character.name);
   })
   } else {
-    alert(request.code);
+    alert("error");
   }
   
   
