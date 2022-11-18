@@ -17,8 +17,6 @@ function makeRequest(requestURL) {
   request.onload = function () {
     // Begin accessing JSON data here
 
-    alert(request.status);
-
     var data = JSON.parse(this.data);
     var parsedData = [];
     if (request.status >= 200 && request.status <= 400) {
@@ -55,7 +53,7 @@ function respond() {
 function getResponse(input) {
   input = input.toLowerCase();
   let data = makeRequest("characters?name="+input);
-  return data[2][2];
+  return data.length();
 }
 
 
