@@ -10,6 +10,7 @@ var endPoint = "https://gateway.marvel.com:443/v1/public/";
 
 
 function makeRequest(requestURL) {
+  alert(requestURL);
   var request = new XMLHttpRequest()
   // Open a new connection, using the GET request on the URL endpoint
   request.open('GET', endPoint + requestURL + KEY, true)
@@ -20,7 +21,7 @@ function makeRequest(requestURL) {
     var data = JSON.parse(this.data);
     var parsedData = [];
     if (request.status >= 200 && request.status <= 400) {
-
+      alert(data);
       data.forEach(item => {
         // add items to list
        parsedData.push(item);
@@ -52,6 +53,7 @@ function respond() {
 
 function getResponse(input) {
   input = input.toLowerCase();
+  alert(input);
   let data = makeRequest("characters?name="+input);
   return data.length();
 }
