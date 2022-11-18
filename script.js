@@ -7,6 +7,12 @@ request.open('GET', 'https://gateway.marvel.com/v1/public/characters', true)
 
 request.onload = function () {
   // Begin accessing JSON data here
+  var data = JSON.parse(this.response)
+
+  data.forEach(character => {
+    // Log each character's name
+    alert(character.name)
+  })
 }
 
 // Send request
@@ -29,20 +35,20 @@ const keywords = ["vision", "avengers", "thanos"];
 const responses = ["That's me!", "I am a member of the Avengers!", "Yes, we defeated Thanos."];
 
 //chatbot's response
-function respond(){
-    let userInput = textbox.value;
-    response.innerHTML = getResponse(userInput);
+function respond() {
+  let userInput = textbox.value;
+  response.innerHTML = getResponse(userInput);
 }
 
 function getResponse(input) {
   input = input.toLowerCase();
-   for(let i = 0; i < keywords.length; i++){
-     if(input.includes(keywords[i])){
-       return responses[i];
-     }
-   }
-   
-   return "That's interesting!";
+  for (let i = 0; i < keywords.length; i++) {
+    if (input.includes(keywords[i])) {
+      return responses[i];
+    }
+  }
+
+  return "That's interesting!";
 }
 
 
