@@ -14,7 +14,7 @@ request.open('GET', 'https://gateway.marvel.com/v1/public/characters', true)
 
 request.onload = function () {
   // Begin accessing JSON data here
-  var data = JSON.parse(this.data)
+  /*var data = JSON.parse(this.data)
 
   if(request.status >= 200 && request.status <= 400) {
     alert(request.status);
@@ -25,6 +25,8 @@ request.onload = function () {
   } else {
     alert(request.status);
   }
+  */
+  alert(this.data);
 }
 
 // Send request
