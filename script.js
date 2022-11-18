@@ -22,7 +22,7 @@ request.onload = function () {
     console.log(character.name);
   })
   } else {
-    alert("error");
+    alert(request.code + " " + request.status);
   }
 }
 
