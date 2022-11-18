@@ -5,36 +5,38 @@ const textbox = document.getElementById("textbox");
 const submit = document.getElementById("submit");
 const reponse = document.getElementById("response");
 
-//API stuff endpoint: http(s)://gateway.marvel.com/
-// Create a request variable and assign a new XMLHttpRequest object to it.
-var request = new XMLHttpRequest()
+const KEY = "&apikey=0d0d046ee0b75405f5881a545523f18d";
+var endPoint = "https://gateway.marvel.com:443/v1/public/";
 
-// Open a new connection, using the GET request on the URL endpoint
-request.open('GET', 'https://gateway.marvel.com/v1/public/characters', true)
 
-request.onload = function () {
-  // Begin accessing JSON data here
-  
-  alert(request.status);
-  
-  var data = JSON.parse(this.data);
+function makeRequest(requestURL) {
+  var request = new XMLHttpRequest()
+  // Open a new connection, using the GET request on the URL endpoint
+  request.open('GET', endPoint + requestURL + KEY, true)
 
-  if(request.status >= 200 && request.status <= 400) {
-    
-    data.forEach(character => {
-    // Log each character's name
-    console.log(character.name);
-  })
-  } else {
-    alert("error");
+  request.onload = function () {
+    // Begin accessing JSON data here
+
+    alert(request.status);
+
+    var data = JSON.parse(this.data);
+    var parsedData = [];
+    if (request.status >= 200 && request.status <= 400) {
+
+      data.forEach(item => {
+        // add items to list
+       parsedData.push(item);
+      })
+    } else {
+      alert("error");
+    }
+
+    return parsedData;
   }
-  
-  
+
+  // Send request
+  request.send();
 }
-
-// Send request
-request.send("apikey=0d0d046ee0b75405f5881a545523f18d");
-
 //make button work
 submit.addEventListener("click", respond);
 
@@ -52,13 +54,8 @@ function respond() {
 
 function getResponse(input) {
   input = input.toLowerCase();
-  for (let i = 0; i < keywords.length; i++) {
-    if (input.includes(keywords[i])) {
-      return responses[i];
-    }
-  }
-
-  return "That's interesting!";
+  let data = makeRequest("characters?name="+input);
+  return data[2][2];
 }
 
 
