@@ -14,9 +14,9 @@ request.open('GET', 'https://gateway.marvel.com/v1/public/characters', true)
 
 request.onload = function () {
   // Begin accessing JSON data here
-  var data = JSON.parse(this.response)
+  var data = JSON.parse(this.data)
 
-  if(request.status >= 200 && request.status <= 400) {
+  if(request.code >= 200 && request.code <= 400) {
     data.forEach(character => {
     // Log each character's name
     console.log(character.name);
