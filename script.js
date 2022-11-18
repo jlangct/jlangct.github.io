@@ -16,10 +16,14 @@ request.onload = function () {
   // Begin accessing JSON data here
   var data = JSON.parse(this.response)
 
-  data.forEach(character => {
+  if(request.status >= 200 && request.status <= 400) {
+    data.forEach(character => {
     // Log each character's name
     response.innerHTML += " " + character.name
   })
+  } else {
+    alert("error");
+  }
 }
 
 // Send request
