@@ -1,3 +1,10 @@
+//Store HTML elements
+const title = document.getElementById("title");
+const directions = document.getElementById("directions");
+const textbox = document.getElementById("textbox");
+const submit = document.getElementById("submit");
+const reponse = document.getElementById("response");
+
 //API stuff endpoint: http(s)://gateway.marvel.com/
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest()
@@ -11,19 +18,12 @@ request.onload = function () {
 
   data.forEach(character => {
     // Log each character's name
-    alert(character.name)
+    response.innerHTML += " " + character.name
   })
 }
 
 // Send request
 request.send()
-
-//Store HTML elements
-const title = document.getElementById("title");
-const directions = document.getElementById("directions");
-const textbox = document.getElementById("textbox");
-const submit = document.getElementById("submit");
-const reponse = document.getElementById("response");
 
 //make button work
 submit.addEventListener("click", respond);
