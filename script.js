@@ -17,8 +17,7 @@ request.onload = function () {
   
   
   var data = JSON.parse(this.data)
-alert(request.code);
-alert(request.status);
+
   if(request.status >= 200 && request.status <= 400) {
     
     data.forEach(character => {
@@ -26,14 +25,14 @@ alert(request.status);
     console.log(character.name);
   })
   } else {
-    alert("error");
+    alert("error");``
   }
   
   
 }
 
 // Send request
-request.send()
+request.send(apikey = "0d0d046ee0b75405f5881a545523f18d");
 
 //make button work
 submit.addEventListener("click", respond);
@@ -64,5 +63,5 @@ function getResponse(input) {
 
 
 //api keys public: 0d0d046ee0b75405f5881a545523f18d
-//private: bde0e806e1489164b98d2d98693d48165d8e5b7b
+
 
