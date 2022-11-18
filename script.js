@@ -55,7 +55,8 @@ function getResponse(input) {
   input = input.toLowerCase();
   alert(input);
   let data = makeRequest("characters?name="+input);
-  return data.length();
+  alert(data.length);
+  return data.length;
 }
 
 
