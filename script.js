@@ -33,7 +33,7 @@ request.onload = function () {
 }
 
 // Send request
-request.send("0d0d046ee0b75405f5881a545523f18d");
+request.send("apikey=0d0d046ee0b75405f5881a545523f18d");
 
 //make button work
 submit.addEventListener("click", respond);
