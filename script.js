@@ -14,16 +14,16 @@ function makeRequest(requestURL) {
   request.responseType = "json";
   
   // Open a new connection, using the GET request on the URL endpoint
- var parsedData = request.open('GET', endPoint + requestURL + KEY, true);
+  request.open('GET', endPoint + requestURL + KEY, true);
   alert("request open. response type: " + request.responseType);
   request.onload = function () {
     // Begin accessing JSON data here
     alert("onload function");
-    var mydata = JSON.parse(parsedData);
+    var mydata = JSON.parse(this.responseText);
     alert(mydata.code + " " + mydata.etag);
+    alert("text: " + myData.data.results[0].name);
     if (request.status >= 200 && request.status <= 400) {
-      var charName = mydata.data.results[1];
-      alert(charName);
+
       
     } else {
       alert("error");
