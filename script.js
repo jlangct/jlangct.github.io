@@ -20,7 +20,7 @@ function makeRequest(requestURL) {
     // Begin accessing JSON data here
     alert("onload function");
     var mydata = JSON.parse(parsedData);
-    alert(data.code + " " + data.etag);
+    alert(mydata.code + " " + mydata.etag);
     if (request.status >= 200 && request.status <= 400) {
       var charName = mydata.data.results[1];
       alert(charName);
