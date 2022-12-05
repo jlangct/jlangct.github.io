@@ -21,11 +21,12 @@ function makeRequest(requestURL) {
     var data = JSON.parse(this.data);
     var parsedData = [];
     if (request.status >= 200 && request.status <= 400) {
-      alert(data);
+      alert("the data is " + data);
       data.forEach(item => {
+        alert("the item is " + item);
         // add items to list
        parsedData.push(item);
-       alert(item);
+       
       })
     } else {
       alert("error");
@@ -54,9 +55,9 @@ function respond() {
 
 function getResponse(input) {
   input = input.toLowerCase();
-  alert(input);
+  alert("the input is " + input);
   let data = makeRequest("characters?name="+input);
-  alert(data.length);
+  alert("the data length is " + data.length);
   return data.length;
 }
 
