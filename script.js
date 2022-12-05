@@ -19,6 +19,7 @@ function makeRequest(requestURL) {
     // Begin accessing JSON data here
     alert("onload function");
     var data = JSON.parse(this.data);
+    alert("the data is" + data);
     var parsedData = [];
     if (request.status >= 200 && request.status <= 400) {
       
