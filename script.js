@@ -21,8 +21,7 @@ function makeRequest(requestURL) {
     alert("onload function");
     
     let parsedData = request.response;
-    alert("data parsed");
-     
+    alert("data: " + parsedData);     
     if (request.status >= 200 && request.status <= 400) {
       var charName = parsedData.data.results[1];
       alert(charName);
