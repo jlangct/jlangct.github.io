@@ -25,6 +25,7 @@ function makeRequest(requestURL) {
       data.forEach(item => {
         // add items to list
        parsedData.push(item);
+       alert(item);
       })
     } else {
       alert("error");
