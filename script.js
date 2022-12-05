@@ -11,17 +11,18 @@ var endPoint = "https://gateway.marvel.com:443/v1/public/";
 
 function makeRequest(requestURL) {
   alert(requestURL);
-  var request = new XMLHttpRequest()
+  var request = new XMLHttpRequest();
   // Open a new connection, using the GET request on the URL endpoint
-  request.open('GET', endPoint + requestURL + KEY, true)
+  request.open('GET', endPoint + requestURL + KEY, true);
 
   request.onload = function () {
     // Begin accessing JSON data here
 
     var data = JSON.parse(this.data);
+    alert("the data is " + data);
     var parsedData = [];
     if (request.status >= 200 && request.status <= 400) {
-      alert("the data is " + data);
+      
       data.forEach(item => {
         alert("the item is " + item);
         // add items to list
