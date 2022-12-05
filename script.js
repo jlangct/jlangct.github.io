@@ -18,17 +18,13 @@ function makeRequest(requestURL) {
   request.onload = function () {
     // Begin accessing JSON data here
     alert("onload function");
-    var data = JSON.parse(this.data);
-    alert("the data is" + data);
-    var parsedData = [];
+    var parsedData = JSON.parse(this.data);
+    alert("data parsed");
+
     if (request.status >= 200 && request.status <= 400) {
+      var charName = parsedData.data.results[1];
+      alert(charName);
       
-      data.forEach(item => {
-        alert("the item is " + item);
-        // add items to list
-       parsedData.push(item);
-       
-      })
     } else {
       alert("error");
     }
